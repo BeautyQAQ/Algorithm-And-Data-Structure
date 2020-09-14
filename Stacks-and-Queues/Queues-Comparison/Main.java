@@ -7,7 +7,7 @@ public class Main {
 
         long startTime = System.nanoTime();
 
-        Random random = new Random();
+        Random random = new Random(1000);
         for(int i = 0 ; i < opCount ; i ++)
             q.enqueue(random.nextInt(Integer.MAX_VALUE));
         for(int i = 0 ; i < opCount ; i ++)
