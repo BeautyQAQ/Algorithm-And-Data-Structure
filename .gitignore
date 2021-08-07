@@ -6,3 +6,4 @@
 *.iml
 target
 .vscode
+*.code-workspace
