@@ -3,7 +3,7 @@ package com.leetcode.leetCode;
 import com.leetcode.common.ListNode;
 
 /**
- * 21.合并两个有序链表（简单）
+ * No.21 合并两个有序链表（简单）
  */
 public class MergeTwoLists {
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2){
