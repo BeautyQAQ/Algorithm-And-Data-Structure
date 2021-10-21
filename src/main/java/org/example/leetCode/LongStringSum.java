@@ -39,5 +39,6 @@ public static String addLongString(String addend, String augend) {
             String res = addLongString(addend, augend);
             System.out.println(res);
         }
+        in.close();
     }
 }
