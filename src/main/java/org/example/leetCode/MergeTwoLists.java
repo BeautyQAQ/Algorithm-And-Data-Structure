@@ -1,6 +1,6 @@
-package com.leetcode.leetCode;
+package org.example.leetCode;
 
-import com.leetcode.common.ListNode;
+import org.example.common.ListNode;
 
 /**
  * No.21 合并两个有序链表（简单）
