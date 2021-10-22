@@ -1,8 +1,12 @@
 package org.example.leetCode;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
@@ -17,6 +21,12 @@ import java.util.Set;
  */
 public class OpenLock {
 
+    /**
+     * 打开转盘锁-单向BFS
+     * @param deadends 禁止列表
+     * @param target 目标值
+     * @return 层级
+     */
     public static int openLock(String[] deadends, String target) {
         // 保存deadens
         Set<String> deadSet = new HashSet<>(Arrays.asList(deadends));
@@ -68,12 +78,113 @@ public class OpenLock {
         return -1;
     }
 
+    /**
+     * 打开转盘锁-双向BFS
+     * @param deadends 禁止列表
+     * @param target 目标值
+     * @param modle 模式-双向BFS
+     * @return 层级
+     */
+    public static int openLock(String[] deadends, String target, String modle) {
+        // 定义初始字符 0000
+        String start = "0000";
+        Set<String> set = new HashSet<>(Arrays.asList(deadends));
+        // deadens包含目标值和初始值,直接返回-1
+        if(set.contains(target)||set.contains(start)){
+            return -1;
+        }
+        // 对比第一个值是否已经拿到目标对象
+        if (start.equals(target)) {
+            return 0;
+        }
+        return bfs(set, target, start);
+    }
+
+
+    private static int bfs(Set<String> set, String target, String start) {
+        // 定义两个队列,分别记录从正向和反向搜索的字符
+        Deque<String> d1 = new ArrayDeque<>();
+        Deque<String> d2 = new ArrayDeque<>();
+        // 定义两个map, 标记每个字符是由当前字符转换多少次得来
+        Map<String, Integer> map1 = new HashMap<>();
+        Map<String, Integer> map2 = new HashMap<>();
+        d1.add(start);
+        map1.put(start, 0);
+        d2.add(target);
+        map2.put(target, 0);
+
+        // 两个队列都不为空时,才往下进行搜索
+        while (!d1.isEmpty()&&!d2.isEmpty()) {
+            int t = -1;
+            if(d1.size()<=d2.size()){
+                t=update(d1,map1,map2,set);
+            }else{
+                t=update(d2,map2,map1,set);
+            }
+            if (t!=-1) {
+                return t;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 从队列中取出值进行变换
+     * @param deque 队列
+     * @param cur 当前方向的map
+     * @param orther 另一方向的map
+     */
+    private static int update(Deque<String> deque, Map<String, Integer> cur, Map<String, Integer> orther,Set<String> set) {
+        String poll = deque.pollFirst();
+        for (int i = 0; i < poll.length(); i++) {
+            // 循环做加一或者减一操作单
+            char ch = poll.charAt(i);
+            String sub = "";
+            for (int j = -1; j <= 1; j++) {
+                // 等于0时跳过
+                if(j==0){
+                    continue;
+                }
+                if(j==1){
+                    // 加1操作
+                    sub = poll.substring(0, i)+(char)(ch=='9'?'0':ch+1)+poll.substring(i+1);
+                }
+                if(j==-1){
+                    // 减1操作
+                    sub = poll.substring(0, i)+(char)(ch=='0'?'9':ch-1)+poll.substring(i+1);
+                }
+                if (set.contains(sub)) {
+                    continue;
+                }
+                if (cur.containsKey(sub)) {
+                    continue;
+                }
+
+                // 如果在另一个方向找到,说明找到了目标值,返回层数
+                if (orther.containsKey(sub)) {
+                    return cur.get(poll)+1+orther.get(sub);
+                }else{
+                    deque.add(sub);
+                    cur.put(sub, cur.get(poll)+1);
+                }
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
-        String[] deadends = {"0201","0101","0102","1212","2002"};
-        String target = "0202";
+        // String[] deadends = {"0201","0101","0102","1212","2002"};
+        // String target = "0202";
 
         // String[] deadends = { "8888" };
         // String target = "0009";
+
+        // String[] deadends = { "0000" };
+        // String target = "8888";
+
+        String[] deadends = { "0201","0101","0102","1212","2002" };
+        String target = "0000";
         System.out.println("打开转盘锁:" + openLock(deadends, target));
+        System.out.println("打开转盘锁双向BFS:" + openLock(deadends, target, "双向BFS"));
     }
 }

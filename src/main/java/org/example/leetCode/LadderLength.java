@@ -28,7 +28,7 @@ public class LadderLength {
         return bfs(beginWord,endWord,set) == -1 ? 0 : bfs(beginWord,endWord,set)+1;
     }
 
-    public static int bfs(String beginWord, String endWord,Set<String> set) {
+    private static int bfs(String beginWord, String endWord,Set<String> set) {
         // d1表示正向搜索
         Deque<String> d1 = new ArrayDeque<>();
         // d2表示反向搜索
