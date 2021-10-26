@@ -5,3 +5,4 @@
 
 标记:No.279 完全平方数 动态规划未完成 NumSquares.java
 标记:No.94 二叉树的中序遍历未弄清楚 InorderTraversal.java
+标记:No.394 字符串解码  DecodeString.java
