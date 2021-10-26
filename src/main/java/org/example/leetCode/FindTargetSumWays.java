@@ -10,12 +10,12 @@ package org.example.leetCode;
  */
 public class FindTargetSumWays {
     private int count = 0;
-    public static int findTargetSumWays(int[] nums, int target) {
+    public int findTargetSumWays(int[] nums, int target) {
         dfs(nums, 0, target, 0);
         return count;
     }
 
-    private static void dfs(int[] nums, int index, int target, int cur) {
+    private void dfs(int[] nums, int index, int target, int cur) {
         if(index==nums.length){
             if(cur==target){
                 count++;
