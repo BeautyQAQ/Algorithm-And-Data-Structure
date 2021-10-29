@@ -14,7 +14,8 @@ public class ReverseWords {
         StringBuilder stringBuilder = new StringBuilder();
         int length = split.length;
         // 从后往前遍历
-        while (--length>0){
+        while (length>0){
+            --length;
             if (split[length].length()!=0){
                 if (stringBuilder.length()>0){
                     stringBuilder.append(" ");
