@@ -16,7 +16,7 @@ public class NumIslands {
      * @param modle 深度优先DFS或者广度优先BFS 
      * @return 岛屿数量
      */
-    public static int numIslands(char[][] grid, String modle) {
+    public int numIslands(char[][] grid, String modle) {
         // 判断grid是否为空
         if(grid.length==0 || grid == null){
             return 0;
@@ -50,7 +50,7 @@ public class NumIslands {
      * @param i 位置i
      * @param j 位置j
      */
-    public static void dfs(char[][] grid, int i, int j){
+    public void dfs(char[][] grid, int i, int j){
         // 判断边界
         if(i<0||i>=grid.length||j<0||j>=grid[0].length||grid[i][j]=='0'){
             return;
@@ -70,7 +70,7 @@ public class NumIslands {
      * @param i 位置i
      * @param j 位置j
      */
-    public static void bfs(char[][] grid, int i, int j){
+    public void bfs(char[][] grid, int i, int j){
         // 队列暂存值为 1 的点
         Queue<Integer> queue = new LinkedList<>();
         // 暂存节点位置,用整形存储,减少内存消耗,用[][]数组存储内存消耗翻倍
@@ -115,7 +115,8 @@ public class NumIslands {
                             {'0','0','0','0'},
                             {'0','1','0','0'},
                             {'0','0','1','1'}};
-        System.out.println("DFS岛屿数量:"+numIslands(gridDFS, "DFS"));
-        System.out.println("BFS岛屿数量:"+numIslands(gridBFS, "BFS"));
+        NumIslands numIslands = new NumIslands();
+        System.out.println("DFS岛屿数量:"+numIslands.numIslands(gridDFS, "DFS"));
+        System.out.println("BFS岛屿数量:"+numIslands.numIslands(gridBFS, "BFS"));
     }
 }

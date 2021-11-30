@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.Implementation_of_Loop_Queue;
 
 /**
  * 数组查询
- * @param <E> 泛型
  */
 public class ArrayQueue<E> implements Queue<E> {
 

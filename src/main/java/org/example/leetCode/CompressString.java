@@ -10,11 +10,11 @@ public class CompressString {
 
     public static void main(String[] args) {
 
-        System.out.println(compressStr("sfgdgfdgggggasssdfsdfsdffh"));
+        System.out.println(new CompressString().compressStr("sfgdgfdgggggasssdfsdfsdffh"));
         
     }
 
-    public static String compressStr(String str){
+    public String compressStr(String str){
         StringBuilder sb = new StringBuilder();
         // 连接字符串的个数
         int sum = 1;

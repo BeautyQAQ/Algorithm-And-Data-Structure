@@ -10,10 +10,10 @@ import org.example.common.Node;
  */
 public class CloneGraph {
     public static Node cloneGraph(Node node) {
-        return clone(node, new HashMap<Integer, Node>());
+        return new CloneGraph().clone(node, new HashMap<Integer, Node>());
     }
 
-    private static Node clone(Node node, HashMap<Integer, Node> visited) {
+    private Node clone(Node node, HashMap<Integer, Node> visited) {
         // 边界条件判断,这种情况只有头节点会出现
         if (node==null) {
             return null;

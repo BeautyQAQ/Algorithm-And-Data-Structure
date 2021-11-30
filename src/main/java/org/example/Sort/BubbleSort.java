@@ -10,8 +10,8 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] array = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
         // 只需要修改成对应的方法名就可以了
-        bubbleSort(array);
-    
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.bubbleSort(array);
         System.out.println(Arrays.toString(array));
     }
     
@@ -22,7 +22,7 @@ public class BubbleSort {
      * @author JourWon
      * @date 2019/7/11 9:54
      */
-    public static void bubbleSort(int[] array) {
+    public void bubbleSort(int[] array) {
         if (array == null || array.length <= 1) {
             return;
         }

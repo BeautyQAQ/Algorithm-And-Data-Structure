@@ -6,7 +6,8 @@ package org.example.Sort;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {5, 12, 23, 43, 66, 98, 100};
-        System.out.println(binarySearch(arr, 23));
+        BinarySearch binarySearch = new BinarySearch();
+        System.out.println(binarySearch.binarySearch(arr, 23));
     }
 
     /**
@@ -16,7 +17,7 @@ public class BinarySearch {
      * @param key
      * @return
      */
-    public static int binarySearch(int[] arr, int key) {
+    public int binarySearch(int[] arr, int key) {
         //第一个下标
         int low = 0;
         //最后一个下标

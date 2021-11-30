@@ -4,7 +4,7 @@ package org.example.leetCode;
  * No.1991 寻找数组的中心索引
  */
 public class PivotIndex {
-    public static int pivotIndex(int[] nums) {
+    public int pivotIndex(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             int left = 0;
             int right = 0;
@@ -29,7 +29,7 @@ public class PivotIndex {
      * @param nums 数组
      * @return int
      */
-    public static int pivotIndex1(int[] nums) {
+    public int pivotIndex1(int[] nums) {
         int sum = 0;
         for (int i = 0; i < nums.length; i++) {
             sum+=nums[i];
@@ -46,9 +46,10 @@ public class PivotIndex {
     }
 
     public static void main(String[] args) {
-        int pivotIndex1 = pivotIndex(new int[] { 2, 1, -1 });
-        int pivotIndex2 = pivotIndex(new int[] { 1, 7, 3, 6, 5, 6 });
-        int pivotIndex3 = pivotIndex1(new int[] { -1, -1, -1, -1, -1, -1 });
+        PivotIndex pivotIndex = new PivotIndex();
+        int pivotIndex1 = pivotIndex.pivotIndex(new int[] { 2, 1, -1 });
+        int pivotIndex2 = pivotIndex.pivotIndex(new int[] { 1, 7, 3, 6, 5, 6 });
+        int pivotIndex3 = pivotIndex.pivotIndex1(new int[] { -1, -1, -1, -1, -1, -1 });
         System.out.println("pivotIndex1=" + pivotIndex1);
         System.out.println("pivotIndex2=" + pivotIndex2);
         System.out.println("pivotIndex3=" + pivotIndex3);

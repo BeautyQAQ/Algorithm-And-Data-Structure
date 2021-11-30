@@ -6,7 +6,7 @@ import org.example.common.ListNode;
  * No.21 合并两个有序链表（简单）
  */
 public class MergeTwoLists {
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2){
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2){
         // 虚拟头结点
         ListNode dummy = new ListNode(-1), p = dummy;
         ListNode p1 = l1, p2 = l2;
@@ -42,7 +42,7 @@ public class MergeTwoLists {
         ListNode l2 = new ListNode(4);
         l2.next = new ListNode(3);
 
-        ListNode mergeTwoLists = mergeTwoLists(l1,l2);
+        ListNode mergeTwoLists = new MergeTwoLists().mergeTwoLists(l1,l2);
         System.out.println(mergeTwoLists);
     }
 }

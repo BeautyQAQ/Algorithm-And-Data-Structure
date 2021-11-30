@@ -27,7 +27,7 @@ public class OpenLock {
      * @param target 目标值
      * @return 层级
      */
-    public static int openLock(String[] deadends, String target) {
+    public int openLock(String[] deadends, String target) {
         // 保存deadens
         Set<String> deadSet = new HashSet<>(Arrays.asList(deadends));
         // 初始字符串 0000
@@ -85,7 +85,7 @@ public class OpenLock {
      * @param modle 模式-双向BFS
      * @return 层级
      */
-    public static int openLock(String[] deadends, String target, String modle) {
+    public int openLock(String[] deadends, String target, String modle) {
         // 定义初始字符 0000
         String start = "0000";
         Set<String> set = new HashSet<>(Arrays.asList(deadends));
@@ -101,7 +101,7 @@ public class OpenLock {
     }
 
 
-    private static int bfs(Set<String> set, String target, String start) {
+    private int bfs(Set<String> set, String target, String start) {
         // 定义两个队列,分别记录从正向和反向搜索的字符
         Deque<String> d1 = new ArrayDeque<>();
         Deque<String> d2 = new ArrayDeque<>();
@@ -134,7 +134,7 @@ public class OpenLock {
      * @param cur 当前方向的map
      * @param orther 另一方向的map
      */
-    private static int update(Deque<String> deque, Map<String, Integer> cur, Map<String, Integer> orther,Set<String> set) {
+    private int update(Deque<String> deque, Map<String, Integer> cur, Map<String, Integer> orther,Set<String> set) {
         String poll = deque.pollFirst();
         for (int i = 0; i < poll.length(); i++) {
             // 循环做加一或者减一操作单
@@ -184,7 +184,8 @@ public class OpenLock {
 
         String[] deadends = { "0201","0101","0102","1212","2002" };
         String target = "0000";
-        System.out.println("打开转盘锁:" + openLock(deadends, target));
-        System.out.println("打开转盘锁双向BFS:" + openLock(deadends, target, "双向BFS"));
+        OpenLock openLock = new OpenLock();
+        System.out.println("打开转盘锁:" + openLock.openLock(deadends, target));
+        System.out.println("打开转盘锁双向BFS:" + openLock.openLock(deadends, target, "双向BFS"));
     }
 }

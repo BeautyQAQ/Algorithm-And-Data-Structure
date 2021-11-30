@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.Queues_Comparison;
 
 /**
  * 数组实现队列
- * @param <E> 泛型
  */
 public class ArrayQueue<E> implements Queue<E> {
 

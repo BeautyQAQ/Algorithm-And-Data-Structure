@@ -17,7 +17,7 @@ public class NumSquares {
      * @param n 目标值
      * @return int结果
      */
-    public static int numSquaresBFS(int n) {
+    public int numSquaresBFS(int n) {
         // 记录BFS遍历的队列
         Queue<Integer> queue = new LinkedList<>();
         // 记录访问过的节点
@@ -57,6 +57,6 @@ public class NumSquares {
     }
 
     public static void main(String[] args) {
-        System.out.println("numSquaresBFS:"+numSquaresBFS(11));
+        System.out.println("numSquaresBFS:"+new NumSquares().numSquaresBFS(11));
     }
 }

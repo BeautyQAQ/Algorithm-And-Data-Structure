@@ -2,8 +2,6 @@ package org.example.Stacks_and_Queues.More_about_Leetcode;
 
 /**
  * 数组
- *
- * @param <E> 泛型
  */
 public class Array<E> {
 

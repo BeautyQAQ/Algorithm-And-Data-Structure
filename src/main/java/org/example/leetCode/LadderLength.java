@@ -18,7 +18,7 @@ import java.util.Set;
  * 中的单词数目。如果不存在这样的转换序列，返回 0。
  */
 public class LadderLength {
-    public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         // 定义set保存wordList
         Set<String> set = new HashSet<>(wordList);
         // wordList中不存在目标单词,返回0
@@ -28,7 +28,7 @@ public class LadderLength {
         return bfs(beginWord,endWord,set) == -1 ? 0 : bfs(beginWord,endWord,set)+1;
     }
 
-    private static int bfs(String beginWord, String endWord,Set<String> set) {
+    private int bfs(String beginWord, String endWord,Set<String> set) {
         // d1表示正向搜索
         Deque<String> d1 = new ArrayDeque<>();
         // d2表示反向搜索
@@ -63,7 +63,7 @@ public class LadderLength {
      * @param orther 另一方向记录
      * @return 变换次数
      */
-    private static int update(Deque<String> deque, Map<String, Integer> cur, Map<String, Integer> orther,Set<String> set) {
+    private int update(Deque<String> deque, Map<String, Integer> cur, Map<String, Integer> orther,Set<String> set) {
         // 从队列中取出一个单词
         String poll = deque.pollFirst();
         // 循环替换这个单词
@@ -94,7 +94,7 @@ public class LadderLength {
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
         list.add("cog");
-        int ladderLength = ladderLength("hog", "cog", list);
+        int ladderLength = new LadderLength().ladderLength("hog", "cog", list);
         System.out.println(ladderLength);
     }
 }

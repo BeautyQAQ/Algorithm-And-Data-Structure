@@ -10,7 +10,7 @@ public class ReverseWords {
      * @param s 参数字符串
      * @return 翻转单词
      */
-    public static String reverseWords(String s) {
+    public String reverseWords(String s) {
         String[] split = s.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
         int length = split.length;
@@ -33,7 +33,7 @@ public class ReverseWords {
      * @param s 单词字符串
      * @return 反转
      */
-    public static String reverseWords3(String s) {
+    public String reverseWords3(String s) {
         String[] str = s.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < str.length; i++) {
@@ -53,7 +53,7 @@ public class ReverseWords {
      * @param s 字符串
      * @return 反转
      */
-    private static String reverseStr(String s) {
+    private String reverseStr(String s) {
         int left = 0, right = s.length() - 1;
         char[] chars = s.toCharArray();
         while (left < right) {

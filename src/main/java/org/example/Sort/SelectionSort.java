@@ -10,8 +10,8 @@ public class SelectionSort {
     public static void main(String[] args) {
         int[] array = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
         // 只需要修改成对应的方法名就可以了
-        selectionSort(array);
-
+        SelectionSort selectionSort = new SelectionSort();
+        selectionSort.selectionSort(array);
         System.out.println(Arrays.toString(array));
     }
 
@@ -23,7 +23,7 @@ public class SelectionSort {
      * @author JourWon
      * @date 2019/7/11 23:31
      */
-    public static void selectionSort(int[] array) {
+    public void selectionSort(int[] array) {
         if (array == null || array.length <= 1) {
             return;
         }
@@ -59,7 +59,7 @@ public class SelectionSort {
      * @author JourWon
      * @date 2019/7/11 17:57
      */
-    private static void swap(int[] array, int a, int b) {
+    private void swap(int[] array, int a, int b) {
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;

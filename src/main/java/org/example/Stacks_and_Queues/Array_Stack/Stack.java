@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.Array_Stack;
 
 /**
  * 栈
- * @param <E> 泛型
  */
 public interface Stack<E> {
 

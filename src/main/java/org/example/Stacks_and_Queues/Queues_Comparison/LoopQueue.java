@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.Queues_Comparison;
 
 /**
  * 环形队列
- * @param <E> 泛型
  */
 public class LoopQueue<E> implements Queue<E> {
 

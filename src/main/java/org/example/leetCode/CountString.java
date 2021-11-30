@@ -14,14 +14,14 @@ public class CountString {
      * @param args
      */
     public static void main(String[] args) {
-        countStringMoreAndLess("eabcdssasbccdddddsesssaaa");
+        new CountString().countStringMoreAndLess("eabcdssasbccdddddsesssaaa");
     }
 
     /**
      * 统计字符串出现最多和最少的个数;
      * @return
      */
-    public static void countStringMoreAndLess(String str){
+    public void countStringMoreAndLess(String str){
         Map<String,Integer> map = new TreeMap<String, Integer>();
         int count = 0;
         if(str!=null && !"".equals(str.trim())){

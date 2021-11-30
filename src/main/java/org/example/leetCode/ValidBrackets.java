@@ -6,7 +6,7 @@ import java.util.Stack;
  * No.20 有效的括号
  */
 public class ValidBrackets {
-    public static boolean isValid(String s) {
+    public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         // 遍历所有的元素
@@ -34,6 +34,6 @@ public class ValidBrackets {
     }
 
     public static void main(String[] args) {
-        System.out.println("括号结果:"+isValid("{{}}()}}"));
+        System.out.println("括号结果:"+new ValidBrackets().isValid("{{}}()}}"));
     }
 }

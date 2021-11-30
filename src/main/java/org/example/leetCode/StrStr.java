@@ -8,7 +8,7 @@ package org.example.leetCode;
  * 如果不存在，则返回  -1 。
  */
 public class StrStr {
-    public  int strStr(String haystack, String needle) {
+    public int strStr(String haystack, String needle) {
         if(needle.length() == 0) {
             return 0;
         }  

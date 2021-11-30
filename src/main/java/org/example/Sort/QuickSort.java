@@ -9,8 +9,8 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] array = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
         // 只需要修改成对应的方法名就可以了
-        quickSort(array);
-
+        QuickSort quickSort = new QuickSort();
+        quickSort.quickSort(array);
         System.out.println(Arrays.toString(array));
     }
 
@@ -22,12 +22,12 @@ public class QuickSort {
      * @author JourWon
      * @date 2019/7/11 23:39
      */
-    public static void quickSort(int[] array) {
+    public void quickSort(int[] array) {
         quickSort(array, 0, array.length - 1);
     }
 
 
-    private static void quickSort(int[] array, int left, int right) {
+    private void quickSort(int[] array, int left, int right) {
         if (array == null || left >= right || array.length <= 1) {
             return;
         }
@@ -37,7 +37,7 @@ public class QuickSort {
     }
 
 
-    private static int partition(int[] array, int left, int right) {
+    private int partition(int[] array, int left, int right) {
         int temp = array[left];
         while (right > left) {
             // 先判断基准数和后面的数依次比较

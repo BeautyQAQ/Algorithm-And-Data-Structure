@@ -7,9 +7,8 @@ import java.util.Scanner;
  * 两个超长数字字符串求和
  */
 public class LongStringSum {
-    
 
-public static String addLongString(String addend, String augend) {
+public String addLongString(String addend, String augend) {
         StringBuilder res = new StringBuilder();
         // 进位信息
         int carry = 0;
@@ -36,7 +35,7 @@ public static String addLongString(String addend, String augend) {
         while (in.hasNext()) {
             String addend = in.next();
             String augend = in.next();
-            String res = addLongString(addend, augend);
+            String res = new LongStringSum().addLongString(addend, augend);
             System.out.println(res);
         }
         in.close();

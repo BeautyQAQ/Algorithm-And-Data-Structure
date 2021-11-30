@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.More_about_Leetcode;
 
 /**
  * 用数组实现栈
- * @param <E> 泛型
  */
 public class ArrayStack<E> implements Stack<E> {
 

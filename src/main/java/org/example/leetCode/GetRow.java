@@ -10,7 +10,7 @@ import java.util.List;
  * 在「杨辉三角」中，每个数是它左上方和右上方的数的和。
  */
 public class GetRow {
-    public static List<Integer> getRow(int rowIndex) {
+    public List<Integer> getRow(int rowIndex) {
         // 动态规划, 用上一次的结果计算下一次的结果
         List<Integer> list = new ArrayList<>();
         // 第一列
@@ -31,7 +31,7 @@ public class GetRow {
     }
 
     public static void main(String[] args) {
-        List<Integer> row = getRow(3);
+        List<Integer> row = new GetRow().getRow(3);
         for (Integer integer : row) {
             System.out.println(integer);
         }
