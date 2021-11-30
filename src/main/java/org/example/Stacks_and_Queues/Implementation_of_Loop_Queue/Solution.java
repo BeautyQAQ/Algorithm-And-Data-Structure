@@ -2,7 +2,8 @@ package org.example.Stacks_and_Queues.Implementation_of_Loop_Queue;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.util.Pair;
+
+import org.apache.commons.lang3.tuple.Pair;
 
 /// Leetcode 102. Binary Tree Level Order Traversal
 /// https://leetcode.com/problems/binary-tree-level-order-traversal/description/
@@ -134,7 +135,7 @@ class Solution {
 
         // 我们使用LinkedList来做为我们的先入先出的队列
         LoopQueue<Pair<TreeNode, Integer>> queue = new LoopQueue<Pair<TreeNode, Integer>>();
-        queue.enqueue(new Pair<TreeNode, Integer>(root, 0));
+        queue.enqueue(Pair.of(root, 0));
 
         while(!queue.isEmpty()){
 
@@ -148,9 +149,9 @@ class Solution {
 
             res.get(level).add(node.val);
             if(node.left != null)
-                queue.enqueue(new Pair<TreeNode, Integer>(node.left, level + 1));
+                queue.enqueue(Pair.of(node.left, level + 1));
             if(node.right != null)
-                queue.enqueue(new Pair<TreeNode, Integer>(node.right, level + 1));
+                queue.enqueue(Pair.of(node.right, level + 1));
         }
 
         return res;
