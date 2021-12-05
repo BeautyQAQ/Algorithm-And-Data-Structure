@@ -39,14 +39,17 @@ public class Array<E> {
     // 在index索引的位置插入一个新元素e
     public void add(int index, E e) {
 
-        if (index < 0 || index > size)
+        if (index < 0 || index > size){
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
-
-        if (size == data.length)
+        }
+        // 扩容两倍, java中的ArrayList是扩容1.5倍
+        if (size == data.length){
             resize(2 * data.length);
+        }
 
-        for (int i = size - 1; i >= index; i--)
+        for (int i = size - 1; i >= index; i--){
             data[i + 1] = data[i];
+        }
 
         data[index] = e;
 
@@ -113,7 +116,7 @@ public class Array<E> {
             data[i - 1] = data[i];
         size--;
         data[size] = null; // loitering objects != memory leak
-
+        // 当数组大小为数组容量的1/4时，才对数组进行缩容
         if (size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
         return ret;
