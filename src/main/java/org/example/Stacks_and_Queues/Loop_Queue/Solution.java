@@ -1,4 +1,4 @@
-package org.example.Stacks_and_Queues.Implementation_of_Loop_Queue;
+package org.example.Stacks_and_Queues.Loop_Queue;
 
 import java.util.ArrayList;
 import java.util.List;
