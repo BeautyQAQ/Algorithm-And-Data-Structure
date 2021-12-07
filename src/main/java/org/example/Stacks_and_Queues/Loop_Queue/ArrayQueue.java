@@ -1,7 +1,7 @@
 package org.example.Stacks_and_Queues.Loop_Queue;
 
 /**
- * 数组查询
+ * 数组实现队列
  */
 public class ArrayQueue<E> implements Queue<E> {
 
@@ -29,11 +29,13 @@ public class ArrayQueue<E> implements Queue<E> {
         return array.getCapacity();
     }
 
+    // 入队, 向数组第一个不为空的位置(末尾)添加一个元素
     @Override
     public void enqueue(E e){
         array.addLast(e);
     }
 
+    // 出队, 取出数组头(索引为0)的元素
     @Override
     public E dequeue(){
         return array.removeFirst();

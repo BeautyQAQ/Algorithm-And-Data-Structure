@@ -2,15 +2,17 @@ package org.example.Stacks_and_Queues.Loop_Queue;
 
 /**
  * 环形队列
+ * 可以思考一下：
+ * LoopQueue中不声明size，如何完成所有的逻辑？
+ * 这个问题可能会比较难
  */
 public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;
     private int front, tail;
-    private int size;  // 有兴趣的同学，在完成这一章后，可以思考一下：
-                       // LoopQueue中不声明size，如何完成所有的逻辑？
-                       // 这个问题可能会比大家想象的要难一点点：）
+    private int size;
 
+    // 需要对容量+1, 因为有一个容量被浪费了
     public LoopQueue(int capacity){
         data = (E[])new Object[capacity + 1];
         front = 0;
@@ -26,6 +28,7 @@ public class LoopQueue<E> implements Queue<E> {
         return data.length - 1;
     }
 
+    // 当头指针等于尾指针时, 队列为空, 这种实现方式会有一个容量被浪费
     @Override
     public boolean isEmpty(){
         return front == tail;
@@ -36,17 +39,20 @@ public class LoopQueue<E> implements Queue<E> {
         return size;
     }
 
+    // 入队
     @Override
     public void enqueue(E e){
-
+        // 当队尾指针+1和数组长度取模等于队首指针时, 数组容量占满, 需要扩容
         if((tail + 1) % data.length == front)
             resize(getCapacity() * 2);
 
         data[tail] = e;
+        // 取模操作, 保证队列的环形状态
         tail = (tail + 1) % data.length;
         size ++;
     }
 
+    // 出队
     @Override
     public E dequeue(){
 
@@ -69,6 +75,7 @@ public class LoopQueue<E> implements Queue<E> {
         return data[front];
     }
 
+    // 扩容, 需要对容量+1, 因为有一个容量被浪费了
     private void resize(int newCapacity){
 
         E[] newData = (E[])new Object[newCapacity + 1];

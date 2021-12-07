@@ -1,5 +1,8 @@
 package org.example.Stacks_and_Queues.More_about_Leetcode;
 
+/**
+ * 有效的括号
+ */
 class Solution {
 
     public boolean isValid(String s) {

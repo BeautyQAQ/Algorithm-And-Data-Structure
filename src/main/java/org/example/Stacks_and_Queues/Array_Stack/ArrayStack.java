@@ -2,7 +2,6 @@ package org.example.Stacks_and_Queues.Array_Stack;
 
 /**
  * 用数组实现栈
- * @param <E> 泛型
  */
 public class ArrayStack<E> implements Stack<E> {
 
@@ -30,11 +29,13 @@ public class ArrayStack<E> implements Stack<E> {
         return array.getCapacity();
     }
 
+    // 压栈, 向数组第一个不为空的位置(末尾)添加一个元素
     @Override
     public void push(E e){
         array.addLast(e);
     }
 
+    // 出栈, 移除数组末尾的元素
     @Override
     public E pop(){
         return array.removeLast();

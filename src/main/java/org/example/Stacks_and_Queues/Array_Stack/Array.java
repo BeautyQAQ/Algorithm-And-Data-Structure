@@ -2,8 +2,6 @@ package org.example.Stacks_and_Queues.Array_Stack;
 
 /**
  * 数组
- *
- * @param <E> 泛型
  */
 public class Array<E> {
 
@@ -46,7 +44,7 @@ public class Array<E> {
         if (size == data.length){
             resize(2 * data.length);
         }
-
+        // 插入位置的元素向后移动一位
         for (int i = size - 1; i >= index; i--){
             data[i + 1] = data[i];
         }
@@ -115,7 +113,7 @@ public class Array<E> {
         for (int i = index + 1; i < size; i++)
             data[i - 1] = data[i];
         size--;
-        data[size] = null; // loitering objects != memory leak
+        data[size] = null; // loitering objects != memory leak 这里不指向null也不会内存泄漏, java有GC会回收
         // 当数组大小为数组容量的1/4时，才对数组进行缩容
         if (size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
