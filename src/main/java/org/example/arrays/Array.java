@@ -1,4 +1,4 @@
-package org.example.Arrays;
+package org.example.arrays;
 
 /**
  * 数据结构--数组

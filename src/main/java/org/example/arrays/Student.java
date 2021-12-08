@@ -1,4 +1,4 @@
-package org.example.Arrays;
+package org.example.arrays;
 
 /**
  * 数组测试, 数组内存放对象
