@@ -1,4 +1,4 @@
-package org.example.Stacks_and_Queues.More_about_Leetcode;
+package org.example.Stacks_and_Queues.Array_Stack;
 
 /**
  * 有效的括号

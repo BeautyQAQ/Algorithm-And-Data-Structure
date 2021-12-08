@@ -34,5 +34,10 @@ public class Main {
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double time2 = testQueue(loopQueue, opCount);
         System.out.println("LoopQueue, time: " + time2 + " s");
+        /**
+         * ArrayQueue, time: 34.204913278 s
+         * LoopQueue, time: 0.013744074 s
+         * 数组队列这么慢是因为: 数组队列的enqueue操作是O(1)，dequeue操作是O(n), 每次enqueue都要移动数组元素，而环形队列则没有这个问题
+         */
     }
 }

@@ -5,6 +5,8 @@ package org.example.Stacks_and_Queues.Loop_Queue;
  * 可以思考一下：
  * LoopQueue中不声明size，如何完成所有的逻辑？
  * 这个问题可能会比较难
+ * 
+ * 不管是出队还是入队, 头指针和尾指针都向同一方向移动(比如右边)
  */
 public class LoopQueue<E> implements Queue<E> {
 
@@ -47,7 +49,12 @@ public class LoopQueue<E> implements Queue<E> {
             resize(getCapacity() * 2);
 
         data[tail] = e;
-        // 取模操作, 保证队列的环形状态
+        /**
+         * 取模操作, 保证队列的环形状态
+         * 如果tail + 1 == data.length, 则tail = 0
+         * 例: 假设tail = 5, data.length = 10, 则tail + 1 = 6, 取模后为6
+         *     如果tail == 9, 则tail + 1 = 10, 取模后为0
+         */
         tail = (tail + 1) % data.length;
         size ++;
     }
@@ -61,6 +68,10 @@ public class LoopQueue<E> implements Queue<E> {
 
         E ret = data[front];
         data[front] = null;
+        /**
+         * 例: 假设 data.length = 10, front = 9
+         *     (9 + 1) % 10 = 0 
+         */
         front = (front + 1) % data.length;
         size --;
         if(size == getCapacity() / 4 && getCapacity() / 2 != 0)
@@ -77,8 +88,11 @@ public class LoopQueue<E> implements Queue<E> {
 
     // 扩容, 需要对容量+1, 因为有一个容量被浪费了
     private void resize(int newCapacity){
-
         E[] newData = (E[])new Object[newCapacity + 1];
+        /**
+         * 拷贝数组, 让新的数组的元素位置重新从索引0开始
+         * (i + front) % data.length, 是front指针向右移动
+         */
         for(int i = 0 ; i < size ; i ++)
             newData[i] = data[(i + front) % data.length];
 
