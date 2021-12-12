@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.array_stack;
+package org.example.stacks_and_queues.stack;
 
 /**
  * 用数组实现栈
@@ -58,5 +58,18 @@ public class ArrayStack<E> implements Stack<E> {
         }
         res.append("] top");
         return res.toString();
+    }
+
+    public static void main(String[] args) {
+
+        ArrayStack<Integer> stack = new ArrayStack<>();
+
+        for(int i = 0 ; i < 5 ; i ++){
+            stack.push(i);
+            System.out.println(stack);
+        }
+
+        stack.pop();
+        System.out.println(stack);
     }
 }

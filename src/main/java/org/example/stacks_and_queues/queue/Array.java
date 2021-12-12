@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.array_stack;
+package org.example.stacks_and_queues.queue;
 
 /**
  * 数组
@@ -37,17 +37,14 @@ public class Array<E> {
     // 在index索引的位置插入一个新元素e
     public void add(int index, E e) {
 
-        if (index < 0 || index > size){
+        if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
-        }
-        // 扩容两倍, java中的ArrayList是扩容1.5倍
-        if (size == data.length){
+
+        if (size == data.length)
             resize(2 * data.length);
-        }
-        // 插入位置的元素向后移动一位
-        for (int i = size - 1; i >= index; i--){
+
+        for (int i = size - 1; i >= index; i--)
             data[i + 1] = data[i];
-        }
 
         data[index] = e;
 
@@ -113,8 +110,8 @@ public class Array<E> {
         for (int i = index + 1; i < size; i++)
             data[i - 1] = data[i];
         size--;
-        data[size] = null; // loitering objects != memory leak 这里不指向null也不会内存泄漏, java有GC会回收
-        // 当数组大小为数组容量的1/4时，才对数组进行缩容
+        data[size] = null; // loitering objects != memory leak
+
         if (size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
         return ret;

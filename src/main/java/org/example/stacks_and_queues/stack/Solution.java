@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.array_stack;
+package org.example.stacks_and_queues.stack;
 
 /**
  * 有效的括号

@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.loop_queue;
+package org.example.stacks_and_queues.queue;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.array_stack;
+package org.example.stacks_and_queues.stack;
 
 /**
  * 栈, 先进后出

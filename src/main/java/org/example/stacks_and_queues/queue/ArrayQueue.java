@@ -1,4 +1,4 @@
-package org.example.stacks_and_queues.loop_queue;
+package org.example.stacks_and_queues.queue;
 
 /**
  * 数组实现队列
