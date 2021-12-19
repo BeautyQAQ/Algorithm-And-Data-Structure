@@ -58,12 +58,32 @@ public class RemoveElements {
         return dummyHead.next;
     }
 
+    /**
+     * 递归删除方案
+     * @param head 链表头
+     * @param val 被删除的值
+     * @return 返回表头
+     */
+    public ListNode removeElementsRecursion(ListNode head, int val){
+        // 递归到底的情况
+        if (head == null) {
+            return null;
+        }
+        // 更小的递归问题
+        head.next = removeElementsRecursion(head.next, val);
+        return head.val==val ? head.next : head;
+    }
     public static void main(String[] args) {
         int[] numbs = {1,2,6,3,4,5,6};
         ListNode head = new ListNode(numbs);
         System.out.println(head);
         RemoveElements removeElements = new RemoveElements();
         ListNode result = removeElements.removeElements(head, 6);
+        System.out.println(result);
+
+        System.out.println("---------------分割线--------------");
+        head = new ListNode(numbs);
+        result = removeElements.removeElementsRecursion(head, 6);
         System.out.println(result);
     }
 }
