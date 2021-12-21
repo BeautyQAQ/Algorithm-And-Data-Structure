@@ -245,7 +245,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
      */
     public E removeMin(){
         E ret = minimum();
-        removeMin(root);
+        root = removeMin(root);
         return ret;
     }
 
@@ -273,7 +273,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
      */
     public E removeMax(){
         E ret = maximum();
-        removeMax(root);
+        root = removeMax(root);
         return ret;
     }
 
@@ -386,33 +386,39 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     public static void main(String[] args) {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
+        BST<Integer> b = new BST<>();
         Random random = new Random();
         int n = 1000;
         for (int i = 0; i < n; i++) {
-            bst.add(random.nextInt(10000));
+            int nextInt = random.nextInt(10000);
+            bst.add(nextInt);
+            b.add(nextInt);
         }
         List<Integer> list = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
         while(!bst.isEmpty()){
             list.add(bst.removeMin());
+            list1.add(b.removeMin());
         }
-        // System.out.println(list);
-        for(int i = 1 ; i < list.size() ; i ++)
-            if(list.get(i - 1) > list.get(i))
-                throw new IllegalArgumentException("Error!");
-        System.out.println("removeMin test completed.");
+        System.out.println(list);
+        System.out.println(list1);
+        // for(int i = 1 ; i < list.size() ; i ++)
+        //     if(list.get(i - 1) > list.get(i))
+        //         throw new IllegalArgumentException("Error!");
+        // System.out.println("removeMin test completed.");
 
-        // test removeMax
-        for(int i = 0 ; i < n ; i ++)
-            bst.add(random.nextInt(10000));
+        // // test removeMax
+        // for(int i = 0 ; i < n ; i ++)
+        //     bst.add(random.nextInt(10000));
 
-        list = new ArrayList<>();
-        while(!bst.isEmpty())
-            list.add(bst.removeMax());
+        // list = new ArrayList<>();
+        // while(!bst.isEmpty())
+        //     list.add(bst.removeMax());
 
-        // System.out.println(list);
-        for(int i = 1 ; i < list.size() ; i ++)
-            if(list.get(i - 1) < list.get(i))
-                throw new IllegalArgumentException("Error!");
-        System.out.println("removeMax test completed.");
+        // // System.out.println(list);
+        // for(int i = 1 ; i < list.size() ; i ++)
+        //     if(list.get(i - 1) < list.get(i))
+        //         throw new IllegalArgumentException("Error!");
+        // System.out.println("removeMax test completed.");
     }
 }
