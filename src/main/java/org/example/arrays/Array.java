@@ -22,6 +22,17 @@ public class Array<E> {
         this(10);
     }
     /**
+     * 数组构造函数
+     * @param arr 数组
+     */
+    public Array(E[] arr) {
+        data = (E[])new Object[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+    /**
      * 获取数组中元素的个数
      */
     public int getSize() {
@@ -150,8 +161,8 @@ public class Array<E> {
      * 删除数组中最后一个元素
      * @return 被删除的元素
      */
-    public E reomoveLast(){
-        return remove(size);
+    public E removeLast(){
+        return remove(size-1);
     }
     /**
      * 从数组中删除元素e
@@ -163,6 +174,21 @@ public class Array<E> {
             remove(index);
         }
     }
+
+    /**
+     * 交换两个位置的元素
+     * @param i 位置
+     * @param j 位置
+     */
+    public void swap(int i, int j) {
+        if(i < 0 || i >= size || j < 0 || j >= size){
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+        E e = data[i];
+        data[i] = data[j];
+        data[j] = e;
+    }
+
     /**
      * 重写toString方法
      */
