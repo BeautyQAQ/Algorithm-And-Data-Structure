@@ -1,7 +1,5 @@
 package org.example.segment_tree;
 
-import java.util.Arrays;
-
 /**
  * 线段树
  */
@@ -39,9 +37,11 @@ public class SegmentTree<E> {
 
         // int mid = (1 + r) / 2;
         int mid = l + (r - l) / 2;
+        // 递归调用build左右两个子树的结构
         buildSegmentTree(leftTreeIndex, l, mid);
         buildSegmentTree(rightTreeIndex, mid + 1, r);
 
+        // 融合左右子树的值
         tree[treeIndex] = merger.merger(tree[leftTreeIndex], tree[rightTreeIndex]);
     }
 
@@ -112,9 +112,50 @@ public class SegmentTree<E> {
             return query(leftTreeIndex, l, mid, queryL, queryR);
         }
 
+        // 到这里, 说明查询的区间[queryL, queryR]分布在线段树的两边
         E leftResult = query(leftTreeIndex, l, mid, queryL, mid);
         E rightResult = query(treeIndex, mid+1, r, mid+1, queryR);
         return merger.merger(leftResult, rightResult);
+    }
+
+    /**
+     * 将index位置的值, 更新为e
+     * @param index 位置
+     * @param e 新的值
+     */
+    public void set(int index, E e){
+        if(index < 0 || index >= data.length){
+            throw new IllegalArgumentException("Index is illegal");
+        }
+        data[index] = e;
+        set(0, 0, data.length - 1, index, e);
+    }
+
+    /**
+     * 在以treeIndex为根的线段树中更新index的值为e
+     * @param treeIndex 根节点
+     * @param l 区间
+     * @param r 区间
+     * @param index 位置
+     * @param e 新的值
+     */
+    private void set(int treeIndex, int l, int r, int index, E e) {
+        // 递归结束
+        if (l == r) {
+            tree[treeIndex] = e;
+            return;
+        }
+
+        int mid = l + (r-l)/2;
+        // treeIndex的节点分为[l...mid]和[mid+1...r]两部分
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+        if (index>=mid+1) {
+            set(rightTreeIndex, mid+1, r, index, e);
+        } else {
+            set(leftTreeIndex, l, mid, index, e);
+        }
+        tree[treeIndex] = merger.merger(tree[leftTreeIndex], tree[rightTreeIndex]);
     }
 
     @Override

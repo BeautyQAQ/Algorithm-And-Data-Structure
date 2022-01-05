@@ -9,14 +9,14 @@ package org.example.segment_tree;
  * 输出：
  * [null, 1, -1, -3]
  */
-public class NumArray {
+public class NumArray1 {
 
     /**
      * SegmentTree解法
      */
     private SegmentTree<Integer> segmentTree;
 
-    public NumArray(int[] nums) {
+    public NumArray1(int[] nums) {
         if (nums.length > 0) {
             Integer[] data = new Integer[nums.length];
             for (int i = 0; i < nums.length; i++) {
