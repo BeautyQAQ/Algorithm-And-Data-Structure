@@ -1,7 +1,7 @@
 package org.example.union_find;
 
 /**
- * 第二版并差距
+ * 第二版并查集
  */
 public class UnionFind2 implements UF {
     // 第二版Union-Find, 使用一个数组构建一棵指向父节点的树
