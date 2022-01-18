@@ -41,7 +41,7 @@ public class NumArray2 {
     //--------------------------------分割线-------------------------------
     private int[] data;
     private int[] sum;
-    public void NumArray2(int[] nums){
+    public void NumArray(int[] nums){
         data = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
             data[i] = nums[i];
