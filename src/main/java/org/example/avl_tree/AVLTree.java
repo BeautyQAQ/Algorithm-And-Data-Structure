@@ -121,18 +121,19 @@ public class AVLTree<K extends Comparable<K>, V> {
 
     /**
      * 对节点y进行向右旋转操作，返回旋转后新的根节点x
-     * y x
-     * / \ / \
-     * x T4 向右旋转 (y) z y
-     * / \ - - - - - - - -> / \ / \
-     * z T3 T1 T2 T3 T4
-     * / \
-     * T1 T2
-     * 
+     *  //        y                              x
+     *  //       / \                           /   \
+     *  //      x   T4     向右旋转 (y)        z     y
+     *  //     / \       - - - - - - - ->    / \   / \
+     *  //    z   T3                       T1  T2 T3 T4
+     *  //   / \
+     *  // T1   T2
+     *
      * @param y 节点y
      * @return 新的根节点x
      */
     private Node rightRotate(Node y) {
+
         Node x = y.left;
         Node T3 = x.right;
 
@@ -148,18 +149,18 @@ public class AVLTree<K extends Comparable<K>, V> {
 
     /**
      * 对节点y进行向左旋转操作，返回旋转后新的根节点x
-     * y x
-     * / \ / \
-     * T1 x 向左旋转 (y) y z
-     * / \ - - - - - - - -> / \ / \
-     * T2 z T1 T2 T3 T4
-     * / \
-     * T3 T4
-     * 
+     *  //    y                             x
+     *  //  /  \                          /   \
+     *  // T1   x      向左旋转 (y)       y     z
+     *  //     / \   - - - - - - - ->   / \   / \
+     *  //    T2  z                    T1 T2 T3 T4
+     *  //       / \
+     *  //      T3 T4
      * @param y 节点y
      * @return 新的根节点x
      */
     private Node leftRotate(Node y) {
+
         Node x = y.right;
         Node T2 = x.left;
 
