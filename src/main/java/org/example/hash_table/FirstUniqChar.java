@@ -1,8 +1,8 @@
-package org.example.red_black_tree;
+package org.example.hash_table;
 
 
 public class FirstUniqChar {
     public int firstUniqChar(String s) {
-
+        return 0;
     }
 }
