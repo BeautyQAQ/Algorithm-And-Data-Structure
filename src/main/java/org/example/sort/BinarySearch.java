@@ -13,16 +13,16 @@ public class BinarySearch {
     /**
      * 循环实现二分查找
      *
-     * @param arr
-     * @param key
-     * @return
+     * @param arr 数组
+     * @param key 查找值
+     * @return 下标
      */
     public int binarySearch(int[] arr, int key) {
         //第一个下标
         int low = 0;
         //最后一个下标
         int high = arr.length - 1;
-        int mid = 0;
+        int mid;
         //防越界
         if (key < arr[low] || key > arr[high] || low > high) {
             return -1;

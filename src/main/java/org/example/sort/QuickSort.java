@@ -15,12 +15,9 @@ public class QuickSort {
     }
 
     /**
-     * Description: 快速排序
+     * 快速排序
      *
-     * @param array
-     * @return void
-     * @author JourWon
-     * @date 2019/7/11 23:39
+     * @param array 数组
      */
     public void quickSort(int[] array) {
         quickSort(array, 0, array.length - 1);
