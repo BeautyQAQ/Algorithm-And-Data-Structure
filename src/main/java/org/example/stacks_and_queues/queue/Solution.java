@@ -10,10 +10,10 @@ import org.apache.commons.lang3.tuple.Pair;
 /// 二叉树的层序遍历
 ///
 /// 二叉树的层序遍历是一个典型的可以借助队列解决的问题。
-/// 该代码主要用于使用Leetcode上的问题测试我们的LoopQueue。
+/// 该代码主要用于使用Leetcode上的问题测试LoopQueue。
 /// 对于二叉树的层序遍历，这个课程后续会讲到。
-/// 届时，同学们也可以再回头看这个代码。
-/// 不过到时，大家应该已经学会自己编写二叉树的层序遍历啦：）
+/// 届时，也可以再回头看这个代码。
+/// 不过到时，应该已经学会自己编写二叉树的层序遍历啦：）
 
 class Solution {
 
@@ -42,6 +42,7 @@ class Solution {
         // LoopQueue中不声明size，如何完成所有的逻辑？
         // 这个问题可能会比大家想象的要难一点点：）
 
+        @SuppressWarnings("unchecked")
         public LoopQueue(int capacity){
             data = (E[])new Object[capacity + 1];
             front = 0;
@@ -100,8 +101,8 @@ class Solution {
             return data[front];
         }
 
+        @SuppressWarnings("unchecked")
         private void resize(int newCapacity){
-
             E[] newData = (E[])new Object[newCapacity + 1];
             for(int i = 0 ; i < size ; i ++)
                 newData[i] = data[(i + front) % data.length];

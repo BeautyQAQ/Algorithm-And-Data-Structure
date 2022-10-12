@@ -15,6 +15,7 @@ public class LoopQueue<E> implements Queue<E> {
     private int size;
 
     // 需要对容量+1, 因为有一个容量被浪费了
+    @SuppressWarnings("unchecked")
     public LoopQueue(int capacity){
         data = (E[])new Object[capacity + 1];
         front = 0;
@@ -87,6 +88,7 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     // 扩容, 需要对容量+1, 因为有一个容量被浪费了
+    @SuppressWarnings("unchecked")
     private void resize(int newCapacity){
         E[] newData = (E[])new Object[newCapacity + 1];
         /**

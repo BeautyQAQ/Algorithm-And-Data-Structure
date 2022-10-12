@@ -130,12 +130,12 @@ public class RandomizedSet_TrieR {
     }
 
     TrieRMap map;
-    ArrayList<Integer> nums;
+    ArrayList<Integer> numbs;
 
     /** Initialize your data structure here. */
     public RandomizedSet_TrieR() {
         map = new TrieRMap();
-        nums = new ArrayList<>();
+        numbs = new ArrayList<>();
     }
 
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
@@ -145,8 +145,8 @@ public class RandomizedSet_TrieR {
         if(map.contains(key))
             return false;
 
-        nums.add(val);
-        int index = nums.size() - 1;
+        numbs.add(val);
+        int index = numbs.size() - 1;
         map.add(key, index);
         return true;
     }
@@ -161,11 +161,11 @@ public class RandomizedSet_TrieR {
         int index = map.get(key);
         map.remove(key);
 
-        int num = nums.get(nums.size() - 1);
-        nums.remove(nums.size() - 1);
+        int num = numbs.get(numbs.size() - 1);
+        numbs.remove(numbs.size() - 1);
 
         if(num != val) {
-            nums.set(index, num);
+            numbs.set(index, num);
             map.add(Integer.toString(num), index);
         }
 
@@ -176,8 +176,8 @@ public class RandomizedSet_TrieR {
     public int getRandom() {
 
         Random random = new Random();
-        int index = random.nextInt(nums.size());
-        return nums.get(index);
+        int index = random.nextInt(numbs.size());
+        return numbs.get(index);
     }
 
     public static void main(String[] args){

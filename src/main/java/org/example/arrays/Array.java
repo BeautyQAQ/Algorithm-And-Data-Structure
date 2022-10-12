@@ -11,6 +11,7 @@ public class Array<E> {
      * 构造函数,传入数组的容量
      * @param capacity 数组容量
      */
+    @SuppressWarnings("unchecked")
     public Array(int capacity) {
         data = (E[])new Object[capacity];
         size = 0;
@@ -25,6 +26,7 @@ public class Array<E> {
      * 数组构造函数
      * @param arr 数组
      */
+    @SuppressWarnings("unchecked")
     public Array(E[] arr) {
         data = (E[])new Object[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -208,10 +210,11 @@ public class Array<E> {
     }
     /**
      * 将数组空间的容量变成newData大小
-     * @param newCapacaty 新的容量大小
+     * @param newCapacity 新的容量大小
      */
-    private void resize(int newCapacaty) {
-        E[] newData = (E[])new Object[newCapacaty];
+    @SuppressWarnings("unchecked")
+    private void resize(int newCapacity) {
+        E[] newData = (E[])new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];
         }

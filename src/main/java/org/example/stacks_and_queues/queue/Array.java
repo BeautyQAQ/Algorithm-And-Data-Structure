@@ -9,6 +9,7 @@ public class Array<E> {
     private int size;
 
     // 构造函数，传入数组的容量capacity构造Array
+    @SuppressWarnings("unchecked")
     public Array(int capacity) {
         data = (E[]) new Object[capacity];
         size = 0;
@@ -150,8 +151,8 @@ public class Array<E> {
     }
 
     // 将数组空间的容量变成newCapacity大小
+    @SuppressWarnings("unchecked")
     private void resize(int newCapacity) {
-
         E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++)
             newData[i] = data[i];
