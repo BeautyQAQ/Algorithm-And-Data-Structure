@@ -1,4 +1,4 @@
-package org.example.linked_list;
+package org.example.leetcode.queue_stack;
 
 import org.example.common.ListNode;
 import org.example.stacks_and_queues.queue.ArrayQueue;
