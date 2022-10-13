@@ -12,7 +12,7 @@ public class RandomizedSet_HashMap {
     ArrayList<Integer> numbs;
 
     public RandomizedSet_HashMap() {
-        map = new HashMap();
+        map = new HashMap<String, Integer>();
         numbs = new ArrayList<>();
     }
 
