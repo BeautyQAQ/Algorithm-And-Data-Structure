@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 选择排序
+ * 时间复杂度为 O(n^2)，不稳定排序算法。
  */
 public class SelectionSort {
 
@@ -20,7 +21,6 @@ public class SelectionSort {
      *
      * @param array
      * @return void
-     * @author JourWon
      * @date 2019/7/11 23:31
      */
     public void selectionSort(int[] array) {

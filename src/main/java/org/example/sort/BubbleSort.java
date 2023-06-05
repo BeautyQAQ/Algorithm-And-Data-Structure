@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 冒泡排序
+ * 时间复杂度为 O(n^2)，稳定排序算法。
  */
 public class BubbleSort {
 
@@ -19,7 +20,6 @@ public class BubbleSort {
      * Description:冒泡排序
      *
      * @param array 需要排序的数组
-     * @author JourWon
      * @date 2019/7/11 9:54
      */
     public void bubbleSort(int[] array) {

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 快速排序
+ * 时间复杂度为 O(n log n)，不稳定排序算法。
  */
 public class QuickSort {
     public static void main(String[] args) {
